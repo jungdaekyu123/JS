@@ -6,10 +6,10 @@
     <title>alertBox</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<body>
+<body>     
     <div class="alert-box" id="alert">
       알림창
-     <button onclick="document.getElementById('alert').style.display = 'none';">닫기</button>
+     <button onclick="soo2()">닫기</button>
     </div>
     <button onclick="document.getElementById('alert').style.display = 'block';">버튼</button>
 
@@ -17,8 +17,20 @@
         알림창
        <button onclick="document.getElementById('alert').style.display = 'none';">닫기</button>
       </div>
-      <button onclick="document.getElementById('alert').style.display = 'block';">버튼</button>
+      <button onclick="soo()">버튼</button>
   
+    <script>
+        function soo() {
+            document.getElementById('alert').style.display = 'block';
+        }
 
+        function soo2() {
+            document.getElementById('alert').style.display = 'none';
+        }
+
+
+
+
+    </script>
 </body>
 </html>
