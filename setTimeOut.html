@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
   </head>
-  <body>
+  <body class="dark">
     <div class="black-bg">
         <div class="white-bg">
           <h4>로그인하세요</h4>
@@ -28,7 +28,7 @@
 
       
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">JSSHOP</span>
           <span class="badge bg-dark" id="mode">Dark 🔄</span>
@@ -51,54 +51,74 @@
         <button id="login" class="btn btn-danger">로그인</button>
       </div>
 
-    <script>
-      document.getElementById('login').addEventListener('click',function(){
-      document.querySelector('.black-bg').classList.add('show-modal');
-    })
+      <div class="alert alret-danger">
+        <span id="num">5</span>초 이내 구매시 사은품 증정!
+      </div>
 
+      <script>
+        // setTimeout(function(){
+        //     $('.alert').hide();
+        // },2000)
+
+    //    setTimeout(함수,1000);
+
+
+    //     function 함수() {
+    //         console.log('안녕')
+    //     }
+        // setInterval(function() {
+        //     console.log('안녕');
+        // }, 1000)
+
+          // 5 4 3 2 1 하면 alert가 없어지게 
+          // span에 있는걸 if조건 걸어서 54321 하게 만들고 맨마지막에 hide해주면 될거같다.
+
+          // 페이지 로드 후 실행되는 함수
+//   document.addEventListener("DOMContentLoaded", function() {
+//     // 5초 타이머 설정
+//     var count = 5;
+//     var countdown = setInterval(function() {
+//       // 시간 감소
+//       count--;
+
+//       // span 엘리먼트의 텍스트 변경
+//       document.getElementById("num").textContent = count;
+
+//       // 0초가 되면 div 삭제 및 타이머 중지
+//       if (count === 0) {
+//         clearInterval(countdown); // 타이머 중지
+//         $('.alert').hide();
+        
+//       }
+//     }, 1000); // 1초마다 실행
+//   });
+
+//54321만 구현했음 div를 멈추고 없애는걸 구현해야함
+var count = 5;
+
+setInterval(function(){
+  count -= 1;
+  if (count >= 0){
+    document.querySelector('#num').innerHTML = count;
+   
     
+  } else {
+      clearInterval(count); // 타이머 중지
+      var countdownDiv = document.getElementById("num");
+      $('.alert').hide();
+    }
+  
+}, 1000);
 
-    document.getElementById('close').addEventListener('click',function(){
-      document.querySelector('.black-bg').classList.remove('show-modal');
-    })
+
+
+      </script>
 
   
 
-    $('form').on('submit',function(){
-        if (document.getElementById('email').value == '') {
-            alert('아이디입력안함')
-        } else if 
-            (document.getElementById('pass').value == '') {
-                alert('비번입력안함')
-            } else if 
-                (document.getElementById('pass').value.length < 6) {
-                    alert('비번6자미만')
-                }
-    });
-
-
-    // badge 1회  클릭시 내부 글자를 Light로 변경 
-    // badge 2회  클릭시 내부 글자를 Dark 변경 
-
-        var count = 0;
-
-      $('.badge').on('click',function(){
-        
-        count++;
-
-        if( count % 2 === 1 ) {
-           
-            document.getElementById('mode').innerHTML = 'Light';
-        } else {
-            document.getElementById('mode').innerHTML = 'Dark';
-        } 
-        
-      })
-
-
 
   
-    </script>
+    
 
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

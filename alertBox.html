@@ -7,25 +7,23 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>     
-    <div class="alert-box" id="alert">
-      알림창
-     <button onclick="soo2()">닫기</button>
-    </div>
-    <button onclick="document.getElementById('alert').style.display = 'block';">버튼</button>
-
-    <div class="alert-box" id="alert">
+   
+      <div class="alert-box" id="alert">
         알림창
-       <button onclick="document.getElementById('alert').style.display = 'none';">닫기</button>
+       <button onclick="soo1('none');">닫기</button>
       </div>
-      <button onclick="soo()">버튼</button>
+
+      <button onclick="soo2('block');">버튼</button>
   
     <script>
-        function soo() {
-            document.getElementById('alert').style.display = 'block';
+        
+
+        function soo1(기닫) {
+            document.getElementById('alert').style.display = 기닫;
         }
 
-        function soo2() {
-            document.getElementById('alert').style.display = 'none';
+        function soo2(구멍) {
+            document.getElementById('alert').style.display = 구멍;
         }
 
 

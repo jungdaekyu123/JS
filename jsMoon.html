@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>태조 이성계가 태어난 년도는?</p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+    
+    <script>
+        
+
+        // $('#send-answer').on('click',function(){
+            
+        //     var 태어난년도 = 1335;
+
+        //     if( 태어난년도 == true){
+        //         console.log("성공");
+        //     } else if ( 태어난년도 == flase){
+        //         console.log("병신");
+        //     }
+
+        // })
+        var count = 0;
+
+  document.querySelector('#send-answer').addEventListener('click', function(){
+    count += 1;
+    var 유저답안 = document.querySelector('#answer').value;
+    if (유저답안 == '1335') {
+      alert('성공')
+    } else if (count >= 3 && 유저답안 != '1335'){
+      alert('멍청아')
+    }
+  });
+        
+
+      
+    </script>
+
+    
+    
+</body>
+</html>

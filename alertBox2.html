@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="title">알림창임</p>
+    <button onclick="알림창열기();">닫기</button>
+    </div>
+
+    <button onclick="title1('아이디입력하세요')">버튼1</button>
+    <button onclick="title1('비밀번호입력하세요')">버튼2</button>
+
+  <script>
+
+    function 알림창열기() {
+        document.getElementById('alert').style.display = 'none';
+    }
+ 
+    // function Id() {
+    //     document.getElementById('title').innerHTML = '아이디를입력하세요';
+    //     document.getElementById('alert').style.display = 'block';
+    // }
+
+    // function title1() {
+    //         document.getElementById('title').innerHTML = '비밀번호입력';
+    //         document.getElementById('alert').style.display = 'block';
+    // }
+
+    function title1(구멍) {
+        document.getElementById('title').innerHTML = 구멍;
+        document.getElementById('alert').style.display = 'block';
+    }
+
+
+
+
+    //1. p태그안에 있는것을 바꿔준다 2. 버튼1,2 눌렀을때 띄어준다.
+
+  </script>
+    
+    <!-- 숙제 알림창 버튼1 눌렀을때 아이디입력하세요. 두번쨰 비밀번호 입력하세요. -->
+</body>
+</html>
