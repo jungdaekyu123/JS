@@ -50,6 +50,12 @@
         <h4>Shirt on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
       </div>
+
+      <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+      </div>
+  
+
      <div style="overflow: hidden;">
         <div class="slide-container">
             <div class="slide-box">
@@ -70,8 +76,11 @@
      <button class="slide-3"> 3</button>
      <button class="next">다음</button>
      <button class="before">이전</button>
-     
 
+
+     <div style="height: 1000px"></div>
+     
+     
 
 
 
@@ -91,6 +100,66 @@
     document.getElementById('close').addEventListener('click',function(){
       document.querySelector('.black-bg').classList.remove('show-modal');
     })
+
+    //스크롤바를 100px 내리면 로고 폰트사이즈를 작게 만들어와라  <span class="navbar-brand">JSSHOP</span> 이부분
+    window.addEventListener('scroll',function() {
+      var scrollPosition = window.scrollY;
+
+      //span태그안에 있는 class가 navbar-brand라는 것이 30인데 그걸 스크롤을 내리면 15로 만들어보기
+      if ( scrollY > 100 ) {
+        document.querySelector('.navbar-brand').style.fontSize = '15px';
+      } else {
+        document.querySelector('.navbar-brand').style.fontSize = '30px';
+      }
+      console.log('scroll', scrollPosition);
+    });
+
+
+//     var lastScrollPosition = 0;
+
+// window.addEventListener('scroll', function() {
+//     var currentScrollPosition = window.scrollY;
+
+//     if (currentScrollPosition > lastScrollPosition) {
+//         // 스크롤이 아래로 내려갈 때
+//         document.querySelector('.navbar-brand').style.fontSize = '15px';
+//     } else {
+//         // 스크롤이 위로 올라갈 때
+//         document.querySelector('.navbar-brand').style.fontSize = '30px';
+//     }
+
+//     lastScrollPosition = currentScrollPosition;
+// });
+
+    // div의 스크롤바 내린양 + 100(고객이보는눈높이) == div의 실제높이 이렇게 차이가 나는 이유는 scrollTop때문  저기서 100은 고객이보는눈높이 clientHeight 로 맞출수있따.
+    var hasAlertShown = false;
+    $('.lorem').on('scroll',function(){
+      var 스크롤양 = document.querySelector('.lorem').scrollTop;
+      var 스크롤높이 = document.querySelector('.lorem').scrollHeight;
+      var 고객이보는눈높이 = document.querySelector('.lorem').clientHeight;
+      
+      // div박스안에 있는 lorem이 10px정도 남기고 스크롤 다했으면 alert창으로 다봤다를 띄어주자
+        if (스크롤양 + 고객이보는눈높이 > 스크롤높이 - 10  ) { 
+          alert('끝까지봤다.')
+          hasAlertShown = true;
+        } 
+    });
+
+        //     페이지 내릴 때 마다 페이지를 얼마나 읽었는지 진척도를 알려주는 UI 같은건 어떻게 만들면 될까요?
+
+        // 까만색의 가로로 긴 div 박스 하나 만들고 
+
+        // 페이지를 1% 읽으면 div 박스 길이는 1%
+
+        // 페이지를 50%정도 읽으면 div 박스 길이는 50% 
+
+        // 페이지 다 읽으면 div 박스 길이는 100% 
+
+        // 이런거 만들어보면 재미있을듯요 
+
+        // 실은 간단해서 재미없습니다 
+
+ 
 
     
 
@@ -170,7 +239,19 @@ $('form').on('submit',function(e) {
 
     //응용을 해보자 위에 다 비슷한거 끼리 되어있는걸 묶어보자
 
+    document.querySelector('.black-bg').addEventListener('click',function(e){
+     // e.target; // 유저가 실제로 누른거
+     // console.log(e.target);
+      // e.currentTarget; // 이벤트리스너 달린곳 this;
+      // console.log(e.currentTarget);
+      // e.preventDefault();
+      // e.stopPropagation();
 
+      if ( e.target ==  document.querySelector('.black-bg')) {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      }
+      
+    });
 
 
 
