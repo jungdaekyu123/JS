@@ -10,7 +10,7 @@
   </head>
   <body>
     
-      
+      <!-- select 인풋만들기-->
       <div class="container mt-5">
         <ul class="list">
           <li class="tab-button" data-id="0">Products</li>
@@ -35,9 +35,38 @@
         </div>
       </div>
 
-   
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+          <option>모자</option>
+          <option>셔츠</option>
+          <option>바지</option>
+        </select>
+        <select class="form-select mt-2 form-hide" id="test">
+            <option>95</option>
+            <option>100</option>
+          </select>
+    </form>
+
+    <!-- <div id="test">
+       
+
+    </div> -->
+  
    
     <script src="tab.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+<!--
+(응용)
+
+1. 심심하면 '모자'를 선택했을 때 <select>를 다시 숨기는 기능도 만들어봅시다. 
+
+2. 지금 비슷한 셀렉터들이 많은데 변수화하면 성능개선이 되겠군요
+
+3. 이벤트리스너 안에서 e.currentTarget 아니면 this 이런거 써도 될듯요 
+
+-->

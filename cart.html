@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <h2>장바구니</h2>
+<div class="cart-items"></div>
+
+<script>
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+    if (cartItems.length > 0) {
+        $(".cart-items").empty(); // 장바구니를 비워서 중복 추가되는 것을 방지
+
+        // 장바구니 데이터를 순회하며 각 아이템을 화면에 추가
+        cartItems.forEach(function(item) {
+            console.log(item);
+            // 각 아이템의 제목과 수량을 <p> 태그로 감싸서 .cart-items 요소에 추가
+            $(".cart-items").append(`<p>${item.title} (수량: ${item.num})</p>`);
+        });
+    } else {
+        // 장바구니에 데이터가 없을 경우, 메시지를 화면에 추가
+        $(".cart-items").append("<p>장바구니에 상품이 없습니다.</p>");
+    }
+</script>
+
+
+  </body>
+</html>
+
+
